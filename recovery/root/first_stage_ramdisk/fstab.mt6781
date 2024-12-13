@@ -5,18 +5,18 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "vendor/mediatek/proprietary/hardware/fstab/mt6781/fstab.in.mt6781" 2
-# 173 "vendor/mediatek/proprietary/hardware/fstab/mt6781/fstab.in.mt6781"
-system /system erofs ro wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+# 165 "vendor/mediatek/proprietary/hardware/fstab/mt6781/fstab.in.mt6781"
+system /system ext4 ro wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
 
-vendor /vendor erofs ro wait,slotselect,avb,logical,first_stage_mount
-
-
-product /product erofs ro wait,slotselect,avb,logical,first_stage_mount
+vendor /vendor ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 
+product /product ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 
-system_ext /system_ext erofs ro wait,slotselect,avb,logical,first_stage_mount
+
+
+system_ext /system_ext ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 
 
@@ -26,7 +26,7 @@ system_ext /system_ext erofs ro wait,slotselect,avb,logical,first_stage_mount
 
 /dev/block/by-name/metadata /metadata ext4 noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
 
-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,tran_gc,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,fscompress
+/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,tran_gc,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,
 
 
 
@@ -117,9 +117,3 @@ system_ext /system_ext erofs ro wait,slotselect,avb,logical,first_stage_mount
 
 
 /dev/block/by-name/vbmeta /vbmeta emmc defaults defaults
-
-
-
-
-
-/dev/block/by-name/tkv /tkv emmc defaults defaults
