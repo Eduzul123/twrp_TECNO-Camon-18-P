@@ -108,17 +108,9 @@ BOARD_USES_METADATA_PARTITION := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_USE_FSCRYPT_POLICY := 2
 
-# Recovery modules
-TARGET_RECOVERY_DEVICE_MODULES += \
-    libkeymaster4 \
-    libpuresoftkeymasterdevice
-
-RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-
 # Metadata root folder
-BOARD_ROOT_EXTRA_FOLDERS += metadata
+BOARD_ROOT_EXTRA_FOLDERS += postinstall
+BOARD_ROOT_EXTRA_FOLDERS += tranfs
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -158,7 +150,6 @@ TW_NO_SCREEN_BLANK := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_USE_TOOLBOX := true
-TW_HAS_MTP := true
 
 # Recovery framerate
 TW_FRAMERATE := 60
