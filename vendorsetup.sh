@@ -18,7 +18,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export TW_DEFAULT_LANGUAGE="es"
     export OF_DEVICE_ALT="TECNO-CH7n,TECNO CH7n"
 	export LC_ALL="C"
-	export OF_AB_DEVICE=1
+	export FOX_AB_DEVICE=1
 	export FOX_EXTREME_SIZE_REDUCTION=1
 	export ALLOW_MISSING_DEPENDENCIES=true
 	export OF_QUICK_BACKUP_LIST="/data;"
