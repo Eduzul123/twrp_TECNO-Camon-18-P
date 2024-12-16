@@ -16,15 +16,13 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_CPU_VARIANT := cortex-a53
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
@@ -43,8 +41,17 @@ PRODUCT_PLATFORM := mt6781
 # A/B
 AB_OTA_UPDATER := true
 
+AB_OTA_PARTITIONS += \
+    system \
+    vendor \
+    product \
+    system_ext \
+    boot \
+    vbmeta_vendor \
+    vbmeta_system
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
+BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -120,12 +127,14 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 
 # Metadata root folder
 BOARD_ROOT_EXTRA_FOLDERS += metadata
+BOARD_ROOT_EXTRA_FOLDERS += postinstall
+BOARD_ROOT_EXTRA_FOLDERS += tranfs
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Encryption
-PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION := 20.1.0
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
@@ -142,7 +151,7 @@ BOARD_USES_MTK_HARDWARE := true
 
 ## TWRP-Specific configuration
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := IMY
+TW_DEVICE_VERSION := Camon18P
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_USES_MKE2FS := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
@@ -157,35 +166,28 @@ TW_EXTRA_LANGUAGES := false
 TW_INCLUDE_NTFS_3G := true
 TW_NO_SCREEN_BLANK := true
 TW_INCLUDE_RESETPROP := true
-TW_INCLUDE_REPACKTOOLS := false
+TW_INCLUDE_REPACKTOOLS := true
 TW_USE_TOOLBOX := true
 TW_HAS_MTP := true
 
 # Recovery framerate
 TW_FRAMERATE := 60
 
-# Hide notch for orangefox
-ifneq ($(OF_HIDE_NOTCH),1)
-    TW_Y_OFFSET  := 100 
-    TW_H_OFFSET  := -100
-endif
-
 # Recovery fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
-# Debug
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
-TW_EXCLUDE_BASH := true
-TW_EXCLUDE_TZDATA := true
-TW_NO_FASTBOOT_BOOT := true
-TW_EXCLUDE_LPTOOLS := true
-TW_EXCLUDE_LPDUMP := true
-TW_INCLUDE_LIBRESETPROP := true
-TW_INCLUDE_REPACK_TOOL := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TARGET_SCREEN_DENSITY := 480
+# StatusBar
 TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS := "300"
 TW_CUSTOM_CLOCK_POS := "70"
 TW_CUSTOM_BATTERY_POS := "790"
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+TW_DEFAULT_LANGUAGE := es
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+TW_BACKUP_EXCLUSIONS := /data/fonts/files
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_OEM_BUILD := true
