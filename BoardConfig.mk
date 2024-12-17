@@ -182,6 +182,7 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_BACKUP_EXCLUSIONS := /data/fonts/files
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
 TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_OEM_BUILD := true
 TW_NO_USB_STORAGE := true
 TW_NO_EXFAT := true
 TW_EXCLUDE_TZDATA := true
