@@ -155,7 +155,7 @@ TW_EXCLUDE_PYTHON := true
 TW_EXCLUDE_NANO := true
 TW_EXCLUDE_TWRPAPP := true
 TW_EXTRA_LANGUAGES := false
-TW_INCLUDE_NTFS_3G := false
+TW_INCLUDE_NTFS_3G := true
 TW_NO_SCREEN_BLANK := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
@@ -163,7 +163,7 @@ TW_USE_TOOLBOX := true
 TW_HAS_MTP := true
 
 # Recovery framerate
-TW_FRAMERATE := 60
+TW_FRAMERATE := 120
 
 # Recovery fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
@@ -183,6 +183,3 @@ TW_BACKUP_EXCLUSIONS := /data/fonts/files
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_OEM_BUILD := true
-TW_NO_USB_STORAGE := true
-TW_NO_EXFAT := true
-TW_EXCLUDE_TZDATA := true
