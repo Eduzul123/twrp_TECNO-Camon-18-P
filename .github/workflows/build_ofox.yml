@@ -32,11 +32,11 @@ on:
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
-        default: 'CH7n'
+        default: 'Camon18P'
       MAKEFILE_NAME:
         description: 'MAKEFILE_NAME'
         required: true
-        default: 'twrp_CH7n'
+        default: 'twrp_Camon18P'
       BUILD_TARGET:
         description: 'BUILD_TARGET'
         required: true
