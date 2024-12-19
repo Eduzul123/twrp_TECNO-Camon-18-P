@@ -15,7 +15,7 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-    export TW_DEFAULT_LANGUAGE="es"
+    export TW_DEFAULT_LANGUAGE="es-ES"
     export OF_DEVICE_ALT="Camon18P"
 	export LC_ALL="C"
 	export FOX_AB_DEVICE=1
