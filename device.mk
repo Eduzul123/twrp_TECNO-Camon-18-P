@@ -1,18 +1,7 @@
 #
-# Copyright (C) 2022 The Android Open Source Project
 # Copyright (C) 2023 The TWRP Open Source Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
 LOCAL_PATH := device/Tecno/Camon18P
@@ -20,26 +9,35 @@ LOCAL_PATH := device/Tecno/Camon18P
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
+    dtbo \
+    gz \
+    lk \
+    logo \
+    md1img \
+    preloader \
     product \
+    scp \
+    spmfw \
+    sspm \
     system \
     system_ext \
+    tee \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor \
-    vendor \
-    vendor_boot
-    
+    vendor
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-# V A/B
+# Virtual A/B
 ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# Dynam
+# Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # VNDK
@@ -48,47 +46,45 @@ PRODUCT_TARGET_VNDK_VERSION := 30
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
 
-# Health Hal
+# Health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service \
     libhealthd.$(PRODUCT_PLATFORM)
 
-# Boot control HAL
+# Boot Control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-service \
-    android.hardware.boot@1.1-mtkimpl \
-    android.hardware.boot@1.1-mtkimpl.recovery
-    
-# Fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    android.hardware.fastboot@1.0-impl-mock.recovery \
-    fastbootd
+    android.hardware.boot@1.1-mtkimpl.recovery \
+    android.hardware.boot@1.1-mtkimpl
 
-PRODUCT_PACKAGES += \
-    bootctrl.mt6781 \
-    libgptutils \
-    libz \
-    libcutils
+#PRODUCT_PACKAGES_DEBUG += \
+    bootctrl
 
-PRODUCT_PACKAGES_DEBUG += \
-    bootctrl \
-    update_engine_client
-
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     bootctrl.mt6781 \
     bootctrl.mt6781.recovery
 
-
-# MTK PlPath Utils
+# Fastbootd
 PRODUCT_PACKAGES += \
-    mtk_plpath_utils.recovery
+    android.hardware.fastboot@1.0-impl-mock \
+    fastbootd
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES_DEBUG += \
+   update_engine_client
+
+#PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
     update_engine \
     update_verifier \
     update_engine_sideload
+	
+# Recovery modules
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice
+
+#RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
