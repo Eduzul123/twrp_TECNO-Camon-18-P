@@ -43,6 +43,10 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	
 	# OTA
     export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
+
+	# encryption
+	export OF_DISABLE_FORCED_ENCRYPTION=1
+	export OF_DISABLE_DM_VERITY_FORCED_ENCRYPTION=1
 	
 	# screen settings
 	export OF_SCREEN_H=2460
