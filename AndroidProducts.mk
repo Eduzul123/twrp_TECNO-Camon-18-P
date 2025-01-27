@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_Camon18P.mk
+    $(LOCAL_DIR)/twrp_CH7n.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_Camon18P-eng \
-    twrp_Camon18P-userdebug \
-    twrp_Camon18P-user
+    twrp_CH7n-eng \
+    twrp_CH7n-userdebug \
+    twrp_CH7n-user

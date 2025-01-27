@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/Tecno/Camon18P
+DEVICE_PATH := device/tecno/CH7n
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -29,10 +29,10 @@ TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := Camon18P
+TARGET_OTA_ASSERT_DEVICE := TECNO-CH7n,TECNO CH7n
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := Camon18P
+TARGET_BOOTLOADER_BOARD_NAME := TECNO-CH7n
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
@@ -45,7 +45,7 @@ AB_OTA_UPDATER := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40078000
@@ -142,7 +142,7 @@ BOARD_USES_MTK_HARDWARE := true
 
 ## TWRP-Specific configuration
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := Camon18P
+TW_DEVICE_VERSION := TECNO CH7n
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_USES_MKE2FS := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
