@@ -1,4 +1,4 @@
-FDEVICE="CH7n"
+FDEVICE="TECNO CH7n"
 
 fox_get_target_device() {
 local chkdev=$(echo "$BASH_SOURCE" | grep $FDEVICE)
