@@ -37,6 +37,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_ENABLE_APP_MANAGER=1
     export FOX_USE_XZ_UTILS=1
     export OF_HIDE_NOTCH=1
+    export OF_DEFAULT_KEYMASTER_VERSION=4.1
 	
 	# Navbar
 	export OF_ALLOW_DISABLE_NAVBAR=0
