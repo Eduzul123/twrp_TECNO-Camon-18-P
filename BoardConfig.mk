@@ -112,10 +112,12 @@ TW_USE_FSCRYPT_POLICY := 2
 
 # Recovery modules
 TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
     libkeymaster41 \
     libpuresoftkeymasterdevice
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster4.so \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster41.so \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
