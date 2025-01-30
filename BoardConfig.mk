@@ -57,7 +57,7 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_IMAGE_NAME := kernel
 
 # AVB
 BOARD_AVB_ENABLE := true
@@ -112,12 +112,12 @@ TW_USE_FSCRYPT_POLICY := 2
 
 # Recovery modules
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libkeymaster4 \
+    libkeymaster41 \
     libpuresoftkeymasterdevice
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster41.so \
+    $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
 # Metadata root folder
 BOARD_ROOT_EXTRA_FOLDERS += metadata
