@@ -107,7 +107,7 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 BOARD_USES_METADATA_PARTITION := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_USE_FSCRYPT_POLICY := 2
+TW_USE_FSCRYPT_POLICY := 1
 
 # Metadata root folder
 BOARD_ROOT_EXTRA_FOLDERS += metadata
@@ -160,11 +160,9 @@ TW_OEM_BUILD := true
 # Recovery framerate
 TW_FRAMERATE := 60
 
-# Hide notch for orangefox
-ifneq ($(OF_HIDE_NOTCH),1)
-    TW_Y_OFFSET  := 100 
-    TW_H_OFFSET  := -100
-endif
+# Hide notch
+TW_Y_OFFSET  := 100 
+TW_H_OFFSET  := -100
 
 # Recovery fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
