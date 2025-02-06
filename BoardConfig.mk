@@ -157,7 +157,6 @@ TW_INCLUDE_FASTBOOTD := true
 TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_NO_HAPTICS := true
 TW_OEM_BUILD := true
-TW_NO_WEAVER := true
 
 # Recovery framerate
 TW_FRAMERATE := 60
