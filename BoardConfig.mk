@@ -160,6 +160,12 @@ TW_NO_HAPTICS := true
 # Recovery framerate
 TW_FRAMERATE := 60
 
+# Hide notch for orangefox
+ifneq ($(OF_HIDE_NOTCH),1)
+    TW_Y_OFFSET  := 100 
+    TW_H_OFFSET  := -100
+endif
+
 # Recovery fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
