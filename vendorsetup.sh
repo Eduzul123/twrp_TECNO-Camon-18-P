@@ -30,7 +30,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export FOX_REMOVE_AAPT=1
 	export FOX_DELETE_MAGISK_ADDON=1
         export FOX_DELETE_INITD_ADDON=1
-	export FOX_USE_NANO_EDITOR=0
         export FOX_EXCLUDE_NANO_EDITOR=1
 	export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
 	export OF_CLOCK_POS=1
