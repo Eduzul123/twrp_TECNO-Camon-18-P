@@ -18,7 +18,13 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export OF_DEVICE_ALT="TECNO CH7n"
 	export LC_ALL="C"
 	export FOX_VIRTUAL_AB_DEVICE=1
- 	export FOX_EXTREME_SIZE_REDUCTION=1
+	export FOX_EXTREME_SIZE_REDUCTION=1
+	export OF_ADVANCED_SECURITY=1
+	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+	export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
+	export OF_FBE_METADATA_MOUNT_IGNORE=1
+	export OF_NO_RELOAD_AFTER_DECRYPTION=1
+	export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1 
 	export ALLOW_MISSING_DEPENDENCIES=true
 	export OF_QUICK_BACKUP_LIST="/data;"
 	export OF_USE_MAGISKBOOT=1
@@ -36,7 +42,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_CLOCK_POS=1
 	export FOX_DELETE_AROMAFM=1
 	export OF_USE_GREEN_LED=0
-	export FOX_ENABLE_APP_MANAGER=0
     export FOX_USE_XZ_UTILS=0
     export OF_HIDE_NOTCH=1
 	
@@ -53,7 +58,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_STATUS_INDENT_LEFT=48
 	export OF_STATUS_INDENT_RIGHT=48
 
-	# Partitions path
+	# Bootimage Partition path
+	export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	
