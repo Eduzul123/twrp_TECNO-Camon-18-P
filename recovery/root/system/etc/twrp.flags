@@ -25,7 +25,6 @@
 # MediaTek partitions
 /lk             emmc    /dev/block/by-name/lk                    flags=display="lk";backup=1;slotselect
 /logo           emmc    /dev/block/by-name/logo                  flags=display="logo";backup=1;slotselect
-/misc           emmc    /dev/block/by-name/misc
 /expdb          emmc    /dev/block/by-name/expdb                 flags=display="expdb";backup=1
 /seccfg         emmc    /dev/block/by-name/seccfg                flags=display="SecCfg";backup=1
 /proinfo        emmc    /dev/block/by-name/proinfo               flags=display="Proinfo";backup=1
